@@ -3,233 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedro Henrique Santana Gonçalves | Senior Tech Lead & Software Architect</title>
+    <title>Pedro Henrique Santana Gonçalves | Senior Software Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #0f62fe; --bg-color: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; }
+        :root { --primary: #0f62fe; --bg-light: #f4f7fb; --text-dark: #0f172a; --text-muted: #475569; }
         body { 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
-        /* Fundo de Micro-Pontos Premium (Padrão Apple/Vercel) */
-        .dot-pattern {
+        /* Padrão de Fundo Premium (Malha de Pontos Finos) */
+        .premium-bg {
             position: fixed;
             inset: 0;
             z-index: -1;
             background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-            background-size: 24px 24px;
-            opacity: 0.6;
+            background-size: 32px 32px;
+            opacity: 0.5;
         }
-        /* Efeito de Vidro para os Cards (Claro) */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 24px 48px -12px rgba(15, 98, 254, 0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Glassmorphism Clean - Cartões Premium */
+        .clean-glass {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(0,0,0,0.02);
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-        .glass-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 32px 64px -12px rgba(15, 98, 254, 0.15);
+        .clean-glass:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(15, 98, 254, 0.12);
             border-color: rgba(15, 98, 254, 0.2);
+            background: rgba(255, 255, 255, 0.85);
         }
-        /* Botões Limpos e Sem Sublinhado */
-        a { text-decoration: none !important; }
-        .btn-primary {
-            background-color: var(--primary);
-            color: #ffffff;
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #004ecc;
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px -5px rgba(15, 98, 254, 0.4);
-        }
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            transition: all 0.3s ease;
-        }
-        .btn-outline:hover {
-            background-color: rgba(15, 98, 254, 0.05);
-            transform: scale(1.05);
-        }
-        /* Gradientes e Detalhes Visuais */
+        /* Tipografia e Gradientes */
         .text-gradient {
-            background: linear-gradient(135deg, #0f62fe 0%, #0284c7 100%);
+            background: linear-gradient(135deg, #0f62fe 0%, #0ea5e9 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .code-font { font-family: 'JetBrains Mono', monospace; }
-        
-        /* Terminal UI no Rodapé */
-        .mac-window {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        /* Remoção completa de sublinhados em links */
+        a { text-decoration: none !important; }
+        .tag {
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #e2e8f0;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transition: 0.3s;
         }
-        .mac-header {
-            background: #161b22;
-            border-bottom: 1px solid #30363d;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
+        .tag:hover { background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; }
+        /* Elementos Decorativos de Fundo */
+        .blur-orb-1 { position: absolute; top: -10%; left: -5%; width: 500px; height: 500px; background: rgba(15, 98, 254, 0.1); border-radius: 50%; filter: blur(100px); z-index: -1; }
+        .blur-orb-2 { position: absolute; bottom: 10%; right: -10%; width: 600px; height: 600px; background: rgba(14, 165, 233, 0.1); border-radius: 50%; filter: blur(120px); z-index: -1; }
+        /* Timeline Line */
+        .timeline-border::before { content: ""; position: absolute; left: 0; top: 0; height: 100%; width: 3px; background: linear-gradient(to bottom, #0f62fe, transparent); border-radius: 4px; }
     </style>
 </head>
-<body class="antialiased selection:bg-blue-200 selection:text-blue-900 relative">
-    
-    <div class="dot-pattern"></div>
+<body class="relative selection:bg-blue-200 selection:text-blue-900">
 
-    <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-blue-400/10 blur-[100px] z-[-1]"></div>
-    <div class="absolute bottom-[20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-cyan-400/10 blur-[120px] z-[-1]"></div>
+    <div class="premium-bg"></div>
+    <div class="blur-orb-1"></div>
+    <div class="blur-orb-2"></div>
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-10 relative z-10">
-        
-        <nav class="flex flex-col sm:flex-row justify-between items-center gap-6 mb-20 animate-fade-in-down">
-            <div class="flex items-center gap-4">
-                <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-lg shadow-blue-500/20">
-                    <img src="https://ui-avatars.com/api/?name=Pedro+Henrique&background=0f62fe&color=fff&size=256&bold=true" alt="Foto de Pedro Henrique" class="w-full h-full object-cover">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 py-16 relative z-10">
+
+        <nav class="clean-glass rounded-3xl p-6 mb-16 flex flex-col md:flex-row justify-between items-center gap-6 animate-fade-in-down">
+            <div class="flex items-center gap-6 w-full md:w-auto">
+                <div class="w-24 h-24 shrink-0 rounded-full overflow-hidden border-4 border-white shadow-xl shadow-blue-500/20 relative">
+                    <img src="https://ui-avatars.com/api/?name=Pedro+Henrique&background=0f62fe&color=fff&size=256&bold=true" alt="Pedro Henrique Santana Gonçalves" class="w-full h-full object-cover">
                 </div>
                 <div>
-                    <h2 class="text-xl font-extrabold tracking-tight text-slate-900">PHSG <span class="text-blue-600">TECH</span></h2>
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Premium Software</p>
+                    <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">Pedro Henrique Santana Gonçalves</h1>
+                    <div class="flex flex-wrap gap-3 mt-2 text-sm font-bold text-slate-500 uppercase tracking-widest">
+                        <span class="text-blue-600">35 Anos</span>
+                        <span>•</span>
+                        <span>Paracatu, MG</span>
+                        <span>•</span>
+                        <span>(38) 9 9975-2535</span>
+                    </div>
                 </div>
             </div>
-
-            <div class="flex items-center gap-4">
-                <a href="https://linkedin.com/in/phsg" target="_blank" class="btn-outline px-6 py-2.5 rounded-full text-sm font-bold tracking-wide">
-                    LinkedIn Profile
-                </a>
-                <a href="https://wa.me/5538999752535" class="btn-primary px-6 py-2.5 rounded-full text-sm font-bold tracking-wide shadow-lg">
-                    WhatsApp Business
-                </a>
+            <div class="flex gap-3 w-full md:w-auto">
+                <a href="https://linkedin.com/in/phsg" target="_blank" class="flex-1 md:flex-none text-center bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-blue-300 px-6 py-3 rounded-xl font-bold transition-all shadow-sm">LinkedIn</a>
+                <a href="https://wa.me/5538999752535" target="_blank" class="flex-1 md:flex-none text-center bg-blue-600 border border-blue-600 text-white hover:bg-blue-700 hover:border-blue-700 px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-blue-500/30">WhatsApp</a>
             </div>
         </nav>
 
-        <header class="max-w-4xl mb-24">
-            <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-6 text-slate-900">
-                <span class="text-blue-600">PED</span>RO HENRIQUE
-            </h1>
-            <h2 class="text-2xl md:text-3xl font-semibold text-slate-700 mb-8 tracking-tight">
-                Senior Tech Lead & Software Architect
+        <header class="mb-24 max-w-4xl">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-black tracking-[0.2em] uppercase">
+                <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+                Software Architect & Senior Tech Lead
+            </div>
+            <h2 class="text-5xl md:text-7xl font-black tracking-tighter leading-[1.05] mb-8 text-slate-900">
+                17 anos arquitetando <span class="text-gradient">Ecossistemas Digitais</span> de alta performance.
             </h2>
-            <p class="text-lg md:text-xl text-slate-600 max-w-3xl leading-relaxed font-medium">
-                Há 17 anos projetando ecossistemas digitais de alta performance. Especialista em arquitetura 
-                <span class="font-bold text-blue-600">PHP 8+</span>, integrações de APIs complexas e transformação de regras de negócio corporativas em software escalável.
+            <p class="text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
+                Minha especialidade não é apenas escrever código, mas projetar a engenharia de software end-to-end. 
+                De infraestruturas robustas a integrações de APIs complexas (SaaS/E-commerce), traduzo <span class="font-bold text-slate-800">regras de negócio</span> em <span class="font-bold text-blue-600">ROI e eficiência operacional</span>, ancorado por uma sólida base analítica em Direito e LGPD.
             </p>
         </header>
 
-        <div class="mb-12">
-            <h3 class="text-4xl font-extrabold text-slate-900 mb-10 tracking-tight">Projetos de Destaque</h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section class="mb-24">
+            <h3 class="text-sm font-black text-slate-400 uppercase tracking-[0.3em] mb-8 ml-2">Core Tech Stack</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="clean-glass p-8 rounded-[2rem]">
+                    <h4 class="text-xl font-extrabold text-slate-900 mb-4 tracking-tight">Backend & Core</h4>
+                    <p class="text-sm text-slate-500 mb-6 font-medium leading-relaxed">Arquitetura de sistemas personalizados e lógicas complexas.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">PHP 8+ (Expert)</span> <span class="tag">Laravel Concepts</span>
+                        <span class="tag">Node.js</span> <span class="tag">XML/JSON</span>
+                    </div>
+                </div>
+                <div class="clean-glass p-8 rounded-[2rem]">
+                    <h4 class="text-xl font-extrabold text-slate-900 mb-4 tracking-tight">Databases</h4>
+                    <p class="text-sm text-slate-500 mb-6 font-medium leading-relaxed">Modelagem relacional e otimização extrema de queries.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">MySQL (Avançado)</span> <span class="tag">SQL Server</span>
+                        <span class="tag">Firebird SQL</span>
+                    </div>
+                </div>
+                <div class="clean-glass p-8 rounded-[2rem]">
+                    <h4 class="text-xl font-extrabold text-slate-900 mb-4 tracking-tight">Integrações (APIs)</h4>
+                    <p class="text-sm text-slate-500 mb-6 font-medium leading-relaxed">Conexões críticas entre sistemas, segurança e automação.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">RESTful APIs</span> <span class="tag">Google Maps (GeoJSON)</span>
+                        <span class="tag">YouTube Data API</span> <span class="tag">WhatsApp API</span> <span class="tag">Gateways (Cielo/Stripe)</span>
+                    </div>
+                </div>
+                <div class="clean-glass p-8 rounded-[2rem]">
+                    <h4 class="text-xl font-extrabold text-slate-900 mb-4 tracking-tight">Infra & Front</h4>
+                    <p class="text-sm text-slate-500 mb-6 font-medium leading-relaxed">De interfaces reativas a administração de servidores de produção.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">JavaScript (ES6+)</span> <span class="tag">Bootstrap 5 / Tailwind</span>
+                        <span class="tag">Linux / Nginx / Apache</span> <span class="tag">SEO Técnico Avançado</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <h3 class="text-sm font-black text-slate-400 uppercase tracking-[0.3em] mb-8 ml-2">Casos de Sucesso em Produção</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 
-                <article class="glass-card rounded-[2rem] p-8 flex flex-col h-full">
+                <div class="clean-glass p-8 rounded-[2rem] flex flex-col h-full border-t-4 border-t-blue-500">
                     <div class="flex-grow">
-                        <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-md text-[10px] font-extrabold uppercase tracking-widest mb-4">Em Produção</div>
-                        <h4 class="text-2xl font-bold text-slate-900 mb-3 leading-tight">Sistema de Gestão Florestal</h4>
+                        <h4 class="text-2xl font-black text-slate-900 mb-2">FS Soluções Florestais</h4>
+                        <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-6">SaaS • Agronegócio Sustentável</p>
                         <p class="text-sm text-slate-600 leading-relaxed font-medium mb-6">
-                            Arquitetura Full-Stack para inventários sustentáveis. Exportação de dados em GeoJSON e integração de plotagem em tempo real com Google Maps API.
+                            Sistema complexo de gestão florestal. Exportação dinâmica em GeoJSON/PDF, plotagem em tempo real via Google Maps API. Resultado: <strong class="text-slate-900">Redução de mais de 50% no tempo operacional do cliente.</strong>
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-2 py-1 bg-slate-100 border border-slate-200 text-slate-600 rounded text-[10px] font-bold code-font">PHP 8</span>
-                            <span class="px-2 py-1 bg-slate-100 border border-slate-200 text-slate-600 rounded text-[10px] font-bold code-font">MySQL</span>
-                            <span class="px-2 py-1 bg-slate-100 border border-slate-200 text-slate-600 rounded text-[10px] font-bold code-font">GeoJSON</span>
+                    </div>
+                    <a href="https://fssolucoesflorestais.com.br" target="_blank" class="w-full text-center bg-slate-900 text-white hover:bg-blue-600 px-6 py-3.5 rounded-xl font-bold transition-all shadow-md mt-auto">Acessar Sistema</a>
+                </div>
+
+                <div class="clean-glass p-8 rounded-[2rem] flex flex-col h-full border-t-4 border-t-indigo-500">
+                    <div class="flex-grow">
+                        <h4 class="text-2xl font-black text-slate-900 mb-2">Advocacia Milton Menezes</h4>
+                        <p class="text-xs font-bold text-indigo-600 uppercase tracking-widest mb-6">Legal Tech • Automação CRM</p>
+                        <p class="text-sm text-slate-600 leading-relaxed font-medium mb-6">
+                            Plataforma de gestão jurídica integrada. Automações avançadas de conteúdo utilizando YouTube Data API e integração com WhatsApp Business para centralização e escala na comunicação.
+                        </p>
+                    </div>
+                    <a href="https://miltonmenezesadvocacia.adv.br" target="_blank" class="w-full text-center bg-slate-900 text-white hover:bg-indigo-600 px-6 py-3.5 rounded-xl font-bold transition-all shadow-md mt-auto">Acessar Sistema</a>
+                </div>
+
+                <div class="clean-glass p-8 rounded-[2rem] flex flex-col h-full border-t-4 border-t-emerald-500">
+                    <div class="flex-grow">
+                        <h4 class="text-2xl font-black text-slate-900 mb-2">Agre Engenharia</h4>
+                        <p class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-6">Corporativo • Engenharia Civil</p>
+                        <p class="text-sm text-slate-600 leading-relaxed font-medium mb-6">
+                            Desenvolvimento de ecossistema digital corporativo com foco em alta conversão, performance de carregamento e otimização rigorosa de SEO Técnico On-page.
+                        </p>
+                    </div>
+                    <a href="https://agreengenharia.com.br" target="_blank" class="w-full text-center bg-slate-900 text-white hover:bg-emerald-600 px-6 py-3.5 rounded-xl font-bold transition-all shadow-md mt-auto">Acessar Sistema</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-24">
+            <h3 class="text-sm font-black text-slate-400 uppercase tracking-[0.3em] mb-12 ml-2">Trajetória Profissional (17 Anos)</h3>
+            <div class="space-y-8 pl-4">
+                
+                <article class="clean-glass p-8 md:p-10 rounded-[2.5rem] relative timeline-border">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+                        <div>
+                            <h4 class="text-3xl font-black text-slate-900 tracking-tight">Líder Técnico & Software Architect</h4>
+                            <p class="text-lg font-bold text-blue-600 mt-1">Agência Visa Code</p>
+                        </div>
+                        <div class="bg-blue-50 border border-blue-100 px-4 py-2 rounded-lg text-right w-fit">
+                            <span class="block text-sm font-black text-blue-700 uppercase">Fev 2009 — Presente</span>
+                            <span class="block text-xs font-bold text-blue-500 mt-1">17 Anos</span>
                         </div>
                     </div>
-                    <a href="https://fssolucoesflorestais.com.br" target="_blank" class="btn-primary w-full py-3 rounded-xl text-center text-sm font-bold uppercase tracking-widest">
-                        Acessar Projeto
-                    </a>
+                    <p class="text-slate-600 leading-relaxed font-medium mb-6">
+                        Liderança do ciclo completo (SDLC) na construção de aplicações. Desenvolvimento arquitetural de sistemas SaaS, plataformas E-commerce e automações comerciais. Foco cirúrgico em código escalável, implementação de APIs de ponta e infraestrutura de servidores (Linux/Apache/Nginx) maximizando performance e alcance orgânico.
+                    </p>
                 </article>
 
-                <article class="glass-card rounded-[2rem] p-8 flex flex-col h-full">
-                    <div class="flex-grow">
-                        <div class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-md text-[10px] font-extrabold uppercase tracking-widest mb-4">Omnichannel Middleware</div>
-                        <h4 class="text-2xl font-bold text-slate-900 mb-3 leading-tight">Eldorado E-commerce Integrator</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed font-medium mb-6">
-                            Desenvolvimento in-house de um Middleware de sincronização bidirecional conectando ERP Firebird SQL legado ao ecossistema web PHP, zerando conflitos de estoque.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-2 py-1 bg-slate-100 border border-slate-200 text-slate-600 rounded text-[10px] font-bold code-font">Firebird SQL</span>
-                            <span class="px-2 py-1 bg-slate-100 border border-slate-200 text-slate-600 rounded text-[10px] font-bold code-font">REST API</span>
+                <article class="clean-glass p-8 md:p-10 rounded-[2.5rem] relative timeline-border opacity-90">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+                        <div>
+                            <h4 class="text-2xl font-black text-slate-900 tracking-tight">Engenheiro de Integração & Gerente E-commerce</h4>
+                            <p class="text-lg font-bold text-slate-600 mt-1">Grupo Eldorado Magazine</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 px-4 py-2 rounded-lg text-right w-fit">
+                            <span class="block text-sm font-black text-slate-700 uppercase">Mai 2012 — Nov 2012</span>
                         </div>
                     </div>
-                    <button class="w-full py-3 rounded-xl text-center text-sm font-bold uppercase tracking-widest bg-slate-100 text-slate-400 cursor-not-allowed border border-slate-200">
-                        Sistema Fechado (SaaS)
-                    </button>
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        Arquitetura de ecossistema Omnichannel pioneiro. Desenvolvi in-house (sem uso de APIs prontas) um <strong class="text-slate-800">Middleware de Sincronização Bidirecional</strong> que conectou o ERP Desktop legado (Firebird SQL) ao E-commerce (PHP/MySQL). O sistema espelhou estoques em tempo real para milhares de SKUs, erradicando conflitos logísticos. Implementei automações de Growth via SQL (disparos de SMS/Email).
+                    </p>
                 </article>
 
-                <article class="glass-card rounded-[2rem] p-8 flex flex-col h-full">
-                    <div class="flex-grow">
-                        <div class="inline-block px-3 py-1 bg-emerald-100 text-emerald-700 rounded-md text-[10px] font-extrabold uppercase tracking-widest mb-4">Legal Tech</div>
-                        <h4 class="text-2xl font-bold text-slate-900 mb-3 leading-tight">Advocacia Milton Menezes</h4>
-                        <p class="text-sm text-slate-600 leading-relaxed font-medium mb-6">
-                            Plataforma de gestão jurídica integrada. Automação de CRM via WhatsApp Business API e sincronização de conteúdo automatizado via YouTube Data API.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-8">
-                            <span class="px-2 py-1 bg-slate-100 border border-slate-200 text-slate-600 rounded text-[10px] font-bold code-font">YouTube API</span>
-                            <span class="px-2 py-1 bg-slate-100 border border-slate-200 text-slate-600 rounded text-[10px] font-bold code-font">WhatsApp API</span>
+                <article class="clean-glass p-8 md:p-10 rounded-[2.5rem] relative timeline-border opacity-90">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+                        <div>
+                            <h4 class="text-2xl font-black text-slate-900 tracking-tight">Técnico de Processamento de Dados (BI)</h4>
+                            <p class="text-lg font-bold text-slate-600 mt-1">Grupo Posto Cruzeiro</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 px-4 py-2 rounded-lg text-right w-fit">
+                            <span class="block text-sm font-black text-slate-700 uppercase">Abr 2013 — Ago 2013</span>
                         </div>
                     </div>
-                    <a href="https://miltonmenezesadvocacia.adv.br" target="_blank" class="btn-outline w-full py-3 rounded-xl text-center text-sm font-bold uppercase tracking-widest bg-white">
-                        Visualizar Caso
-                    </a>
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        Atuação em Business Intelligence. Extração, tratamento e análise de dados em bancos corporativos para geração de relatórios gerenciais analíticos, suportando decisões táticas da diretoria. Manutenção da integridade de dados e infra de TI entre 6 unidades empresariais.
+                    </p>
+                </article>
+
+                <article class="clean-glass p-8 md:p-10 rounded-[2.5rem] relative timeline-border opacity-80">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+                        <div>
+                            <h4 class="text-2xl font-black text-slate-900 tracking-tight">Analista de Infraestrutura & Redes</h4>
+                            <p class="text-lg font-bold text-slate-600 mt-1">UNITEC Escolas Integradas</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 px-4 py-2 rounded-lg text-right w-fit">
+                            <span class="block text-sm font-black text-slate-700 uppercase">Set 2010 — Jul 2011</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        Administração de Data Center (CPD) e engenharia de redes complexas. Gestão de ambiente Windows Server, rotinas de segurança da informação e suporte nível sênior em infraestrutura tecnológica multicampi.
+                    </p>
                 </article>
 
             </div>
-        </div>
+        </section>
 
-        <div class="mt-24 mb-10 max-w-5xl mx-auto">
-            <div class="mac-window overflow-hidden">
-                <div class="mac-header px-4 py-3 flex items-center gap-2">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                    <span class="ml-4 text-[10px] code-font text-slate-400 uppercase tracking-widest">phsg-core-architecture.php</span>
+        <section class="mb-24">
+            <h3 class="text-sm font-black text-slate-400 uppercase tracking-[0.3em] mb-8 ml-2">Background Acadêmico & Analítico</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="clean-glass p-8 rounded-[2rem]">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-slate-900 mb-2">Sistemas de Informação & Gestão de TI</h4>
+                    <p class="text-sm font-bold text-slate-500 mb-4 uppercase tracking-widest">Faculdade Atenas / FINOM / UNIP</p>
+                    <p class="text-slate-600 text-sm font-medium leading-relaxed">Formação tecnológica voltada para a prática corporativa, escala de arquiteturas de sistemas e especialização autodidata contínua.</p>
                 </div>
-                <div class="p-6 md:p-8 overflow-x-auto text-sm md:text-base code-font leading-relaxed">
-                    <pre><code class="text-slate-300"><span class="text-pink-500">&lt;?php</span>
-
-<span class="text-slate-500">/**</span>
-<span class="text-slate-500"> * @author Pedro Henrique Santana Gonçalves</span>
-<span class="text-slate-500"> * @role Senior Software Architect (17 Years Exp)</span>
-<span class="text-slate-500"> * @core PHP 8.x, MySQL, API Integrations, Clean Code</span>
-<span class="text-slate-500"> */</span>
-
-<span class="text-blue-400">class</span> <span class="text-yellow-300">SoftwareEngineer</span> <span class="text-blue-400">implements</span> <span class="text-green-300">SolutionArchitect</span> {
-    
-    <span class="text-blue-400">private string</span> <span class="text-cyan-300">$focus</span> = <span class="text-orange-300">'High Performance & Scalability'</span>;
-    <span class="text-blue-400">private array</span> <span class="text-cyan-300">$stack</span> = [<span class="text-orange-300">'PHP 8'</span>, <span class="text-orange-300">'MySQL'</span>, <span class="text-orange-300">'Vanilla JS'</span>, <span class="text-orange-300">'Tailwind'</span>];
-
-    <span class="text-blue-400">public function</span> <span class="text-yellow-200">deliverProject</span>(<span class="text-cyan-300">$requirements</span>): <span class="text-blue-400">bool</span> {
-        <span class="text-pink-500">try</span> {
-            <span class="text-cyan-300">$this</span>-><span class="text-yellow-200">analyzeBusinessLogic</span>(<span class="text-cyan-300">$requirements</span>);
-            <span class="text-cyan-300">$this</span>-><span class="text-yellow-200">buildScalableArchitecture</span>();
-            <span class="text-pink-500">return</span> <span class="text-purple-400">true</span>; <span class="text-slate-500">// 100% Success Rate</span>
-        } <span class="text-pink-500">catch</span> (<span class="text-green-300">Exception</span> <span class="text-cyan-300">$e</span>) {
-            <span class="text-slate-500">// Failure is not an option.</span>
-            <span class="text-cyan-300">$this</span>-><span class="text-yellow-200">refactorAndOptimize</span>();
-        }
-    }
-}
-<span class="text-pink-500">?&gt;</span></code></pre>
+                
+                <div class="clean-glass p-8 rounded-[2rem]">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-extrabold text-slate-900 mb-2">Bacharelado em Direito (3º Período)</h4>
+                    <p class="text-sm font-bold text-slate-500 mb-4 uppercase tracking-widest">Faculdade Atenas</p>
+                    <p class="text-slate-600 text-sm font-medium leading-relaxed">Diferencial estratégico para interpretação de regras de negócio, compliance corporativo e implementação de lógicas baseadas na LGPD em desenvolvimento de software.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <footer class="mt-20 border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm font-semibold text-slate-500 uppercase tracking-widest">© 2026 PHSG. All rights reserved.</p>
-            <p class="text-sm font-semibold text-slate-400 code-font">Status: <span class="text-emerald-500">Available for Opportunities</span></p>
+        <footer class="clean-glass p-12 md:p-16 rounded-[3rem] text-center mt-32">
+            <h2 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-6">Pronto para o próximo <span class="text-blue-600">Deploy?</span></h2>
+            <p class="text-slate-600 font-medium text-lg max-w-2xl mx-auto mb-10">Desenvolvimento de alto impacto e liderança técnica disponível. Vamos discutir a arquitetura do seu próximo projeto em escala.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="mailto:sistemasgoncalves@gmail.com" class="bg-slate-900 text-white hover:bg-blue-600 px-10 py-4 rounded-2xl font-black transition-all shadow-xl shadow-slate-200 uppercase tracking-widest text-sm">sistemasgoncalves@gmail.com</a>
+                <a href="https://wa.me/5538999752535" target="_blank" class="bg-white border-2 border-slate-200 text-slate-900 hover:border-blue-600 hover:text-blue-600 px-10 py-4 rounded-2xl font-black transition-all uppercase tracking-widest text-sm">(38) 9 9975-2535</a>
+            </div>
+            <p class="text-slate-400 font-bold uppercase tracking-widest text-xs mt-16 code-font">© 2026 PHSG - Engineered for Scale.</p>
         </footer>
 
     </div>
 
 </body>
 </html>
-
