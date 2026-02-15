@@ -3,156 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedro Henrique | Sênior & Especialista</title>
+    <title>Pedro Henrique | Senior Software Architect & Tech Lead</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;500;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #3b82f6;
-            --accent: #8b5cf6;
-            --bg: #050505;
-        }
-        body {
-            background-color: var(--bg);
-            color: #ffffff;
-            font-family: 'Space Grotesk', sans-serif;
-            overflow-x: hidden;
-        }
-        /* Efeito Matrix/Digital de Fundo */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            opacity: 0.15;
-        }
-        /* Glassmorphism Nível Premium */
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-        }
-        .glass:hover {
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            background: rgba(255, 255, 255, 0.05);
-        }
-        .text-gradient {
-            background: linear-gradient(to right, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        @keyframes scanline {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
-        .scanline {
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.05), transparent);
-            position: fixed;
-            animation: scanline 8s linear infinite;
-            pointer-events: none;
-        }
+        :root { --primary: #2563eb; --accent: #7c3aed; --bg: #020202; }
+        body { background-color: var(--bg); color: #fafafa; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
+        #bg-canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.18; }
+        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass:hover { border: 1px solid var(--primary); background: rgba(255, 255, 255, 0.04); transition: 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .text-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .code-font { font-family: 'JetBrains Mono', monospace; }
+        .exp-card::before { content: ""; position: absolute; left: -1px; top: 0; height: 100%; width: 2px; background: linear-gradient(to bottom, #2563eb, transparent); }
+        .tech-pill { background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.2); padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: #60a5fa; transition: 0.3s; }
+        .tech-pill:hover { background: rgba(37, 99, 235, 0.3); transform: translateY(-2px); }
     </style>
 </head>
 <body class="antialiased">
     <canvas id="bg-canvas"></canvas>
-    <div class="scanline"></div>
 
-    <div class="container mx-auto px-6 py-12 lg:py-24 relative">
-        <header class="mb-20 animate-fade-in">
-            <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-4">
-                PEDRO <span class="text-gradient">HENRIQUE</span>
-            </h1>
-            <div class="flex flex-wrap gap-4 items-center text-gray-400 text-lg uppercase tracking-widest">
-                <span>Especialista Logístico</span>
-                <span class="text-blue-500">|</span>
-                <span>Full-Stack Software Engineer</span>
+    <div class="container mx-auto px-6 py-12 lg:py-20 relative z-10">
+        <header class="max-w-5xl mb-24 animate-in fade-in duration-1000">
+            <div class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-blue-500/30 bg-blue-500/10 rounded-full text-blue-400 text-[10px] font-black tracking-[0.3em] uppercase">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                Senior Tech Lead • Architecture Specialist
             </div>
+            <h1 class="text-6xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-10">
+                PEDRO <span class="text-gradient italic">HENRIQUE</span>
+            </h1>
+            <p class="text-xl md:text-3xl text-gray-400 max-w-3xl leading-snug font-light">
+                Há <span class="text-white font-bold">17 anos</span> projetando ecossistemas digitais escaláveis e transformando requisitos complexos em <span class="text-blue-500 font-bold italic underline">ROI e eficiência operacional</span>.
+            </p>
         </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="glass p-10 rounded-3xl transition-all duration-500 group">
-                <div class="flex justify-between items-start mb-8">
-                    <h2 class="text-3xl font-bold">OPERADOR <br><span class="text-blue-500">ESPECIALISTA</span></h2>
-                    <span class="text-xs border border-blue-500 text-blue-500 px-3 py-1 rounded-full">AGRO & SOLAR</span>
-                </div>
-                <p class="text-gray-400 mb-6 leading-relaxed">
-                    Expertise em operações críticas: Torres de produção, Câmaras frias e Canteiros de Energia Solar (M.S. Chavez). 
-                    Domínio total de movimentação de PA (Produto Acabado) e containers.
-                </p>
-                <div class="space-y-3">
-                    <div class="flex items-center gap-3 text-sm text-gray-300">
-                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div> NR-10, 11, 12, 18 (Sênior)
-                    </div>
-                    <div class="flex items-center gap-3 text-sm text-gray-300">
-                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div> Disponibilidade para Alojamento
-                    </div>
-                </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-32">
+            <div class="glass p-10 rounded-[2rem] space-y-4">
+                <div class="text-blue-500 text-3xl font-black">/01</div>
+                <h3 class="text-xl font-bold uppercase italic">Arquitetura End-to-End</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Concepção total: da infraestrutura de servidores e modelagem de banco de dados até o deploy final e otimização contínua de performance.</p>
             </div>
+            <div class="glass p-10 rounded-[2rem] space-y-4">
+                <div class="text-purple-500 text-3xl font-black">/02</div>
+                <h3 class="text-xl font-bold uppercase italic">Engenharia de Integração</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Especialista em Middlewares Omnichannel, conectando ERPs legados a plataformas web modernas para sincronização em tempo real.</p>
+            </div>
+            <div class="glass p-10 rounded-[2rem] space-y-4">
+                <div class="text-green-500 text-3xl font-black">/03</div>
+                <h3 class="text-xl font-bold uppercase italic">Compliance & Business</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Visão analítica fundamentada no Direito, traduzindo regras de negócio complexas e LGPD em lógica de software precisa.</p>
+            </div>
+        </div>
 
-            <div class="glass p-10 rounded-3xl transition-all duration-500 group">
-                <div class="flex justify-between items-start mb-8">
-                    <h2 class="text-3xl font-bold text-white">SOFTWARE <br><span class="text-purple-500">ARCHITECT</span></h2>
-                    <span class="text-xs border border-purple-500 text-purple-500 px-3 py-1 rounded-full">17 ANOS EXP</span>
+        <div class="max-w-5xl mb-32">
+            <h2 class="text-sm font-black uppercase tracking-[0.5em] text-blue-600 mb-16 px-4">Histórico Profissional Selecionado</h2>
+            
+            <div class="space-y-12">
+                <div class="glass p-10 rounded-[2.5rem] relative exp-card">
+                    <div class="flex flex-wrap justify-between items-start gap-4 mb-8">
+                        <div>
+                            <span class="code-font text-blue-500 text-xs font-bold uppercase tracking-widest">Atuação Atual</span>
+                            <h3 class="text-3xl font-black text-white uppercase mt-2">Líder Técnico & Software Architect</h3>
+                            <p class="text-gray-400 font-bold italic text-lg mt-1">Agência Visa Code</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-2xl font-black text-white italic">17 ANOS+</span>
+                            <p class="text-[10px] text-gray-500 font-bold uppercase">fevereiro 2009 — Presente</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-8 max-w-4xl">
+                        Liderança do ciclo completo (SDLC) de aplicações complexas. Arquitetei o sistema de gestão florestal para a <span class="text-blue-400">FS Soluções Florestais</span>, integrando Google Maps API e GeoJSON, reduzindo em 50% o tempo operacional do cliente.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-pill">PHP 8+</span> <span class="tech-pill">MySQL Otimizado</span> <span class="tech-pill">SaaS Design</span> 
+                        <span class="tech-pill">API RESTful</span> <span class="tech-pill">JavaScript ES6+</span> <span class="tech-pill">SEO Técnico</span>
+                    </div>
                 </div>
-                <p class="text-gray-400 mb-6 leading-relaxed">
-                    Desenvolvimento de ecossistemas escaláveis em PHP 8 e MySQL. Automação de fluxos logísticos 
-                    e arquitetura de APIs de alta performance.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-purple-900/30 text-purple-400 px-3 py-1 rounded-md text-xs">PHP 8</span>
-                    <span class="bg-purple-900/30 text-purple-400 px-3 py-1 rounded-md text-xs">API REST</span>
-                    <span class="bg-purple-900/30 text-purple-400 px-3 py-1 rounded-md text-xs">SQL SERVER</span>
-                    <span class="bg-purple-900/30 text-purple-400 px-3 py-1 rounded-md text-xs">SEO</span>
+
+                <div class="glass p-10 rounded-[2.5rem] relative exp-card">
+                    <div class="flex flex-wrap justify-between items-start gap-4 mb-8">
+                        <div>
+                            <h3 class="text-3xl font-black text-white uppercase">Engenheiro de Integração & Manager</h3>
+                            <p class="text-gray-400 font-bold italic text-lg mt-1">Grupo Eldorado Magazine</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xl font-bold text-gray-400 uppercase tracking-tighter">Middleware Omnichannel</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Desenvolvimento de Middleware proprietário conectando ERP Desktop (Firebird SQL) ao E-commerce (PHP/MySQL), permitindo espelhamento de estoque em tempo real para milhares de SKUs.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <footer class="mt-20 flex flex-col md:flex-row justify-between items-center gap-8 glass p-8 rounded-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32">
             <div>
-                <p class="text-gray-500 text-sm uppercase tracking-widest">Contato Direto</p>
-                <p class="text-2xl font-bold">(38) 9 9975-2535</p>
+                <h2 class="text-sm font-black uppercase tracking-[0.5em] text-purple-600 mb-10 px-4">Expertise Técnica</h2>
+                <div class="glass p-10 rounded-[2.5rem] space-y-6">
+                    <div>
+                        <p class="code-font text-[10px] text-gray-500 uppercase mb-3">Backend & Database</p>
+                        <p class="text-lg font-bold text-gray-200">PHP 8 (Specialist), Laravel, Node.js, MySQL (Advanced), SQL Server, XML/JSON.</p>
+                    </div>
+                    <div>
+                        <p class="code-font text-[10px] text-gray-500 uppercase mb-3">Frontend & UI</p>
+                        <p class="text-lg font-bold text-gray-200">JavaScript ES6+, AJAX, Bootstrap 5, HTML5 Semântico, Tailwind CSS.</p>
+                    </div>
+                    <div>
+                        <p class="code-font text-[10px] text-gray-500 uppercase mb-3">Infrastructure</p>
+                        <p class="text-lg font-bold text-gray-200">Linux Server Admin, Nginx/Apache, Git/GitHub, VPS Management, SEO Expert.</p>
+                    </div>
+                </div>
             </div>
-            <a href="https://wa.me/5538999752535" class="bg-white text-black font-bold px-10 py-4 rounded-full hover:bg-blue-500 hover:text-white transition-all transform hover:scale-110">
-                INICIAR OPERAÇÃO
-            </a>
+            <div>
+                <h2 class="text-sm font-black uppercase tracking-[0.5em] text-green-600 mb-10 px-4">Formação Acadêmica</h2>
+                <div class="glass p-10 rounded-[2.5rem] space-y-8">
+                    <div>
+                        <h4 class="text-xl font-black uppercase italic">Sistemas de Informação & Gestão da TI</h4>
+                        <p class="text-gray-500 text-sm">Faculdade Atenas / UNIP • Foco em aplicação prática e escala.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-black uppercase italic text-gray-400">Bacharelado em Direito (3º Per.)</h4>
+                        <p class="text-gray-500 text-sm italic">Visão analítica aplicada a Regras de Negócio e Compliance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="glass p-12 rounded-[3rem] flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="text-center md:text-left">
+                <h2 class="text-4xl font-black uppercase tracking-tighter italic">LET'S BUILD <span class="text-blue-600">SCALE.</span></h2>
+                <p class="text-gray-500 font-bold uppercase text-[10px] tracking-[0.4em] mt-2">Disponibilidade para Projetos Globais & Liderança Técnica</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://linkedin.com/in/phsg" target="_blank" class="px-10 py-5 rounded-2xl border border-gray-800 font-black hover:bg-gray-900 transition-all uppercase tracking-widest text-xs">LinkedIn Profile</a>
+                <a href="https://wa.me/5538999752535" class="px-10 py-5 rounded-2xl bg-blue-600 text-white font-black hover:bg-blue-700 hover:scale-105 transition-all shadow-2xl shadow-blue-500/40 uppercase tracking-widest text-xs">Connect WhatsApp</a>
+            </div>
         </footer>
     </div>
 
     <script>
-        // Matrix Background Logic
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
-
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-
-        const letters = "010101PEDROHENRIQUEPHP8LOGISTICASYSTEMS";
-        const fontSize = 16;
+        const letters = "01PHSGPHP8MYSQLSAASROISCALEAPIJSONMVC";
+        const fontSize = 14;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
-
         function draw() {
-            ctx.fillStyle = 'rgba(5, 5, 5, 0.05)';
+            ctx.fillStyle = 'rgba(2, 2, 2, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#3b82f6';
+            ctx.fillStyle = '#1e3a8a';
             ctx.font = fontSize + 'px monospace';
-
             for (let i = 0; i < drops.length; i++) {
                 const text = letters.charAt(Math.floor(Math.random() * letters.length));
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.985) drops[i] = 0;
                 drops[i]++;
             }
         }
-        setInterval(draw, 33);
+        setInterval(draw, 35);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
     </script>
 </body>
 </html>
