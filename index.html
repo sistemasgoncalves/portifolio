@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Henrique | Sênior & Especialista</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --accent: #8b5cf6;
+            --bg: #050505;
+        }
+        body {
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+        /* Efeito Matrix/Digital de Fundo */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        /* Glassmorphism Nível Premium */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+        .glass:hover {
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.05), transparent);
+            position: fixed;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <canvas id="bg-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <div class="container mx-auto px-6 py-12 lg:py-24 relative">
+        <header class="mb-20 animate-fade-in">
+            <h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-4">
+                PEDRO <span class="text-gradient">HENRIQUE</span>
+            </h1>
+            <div class="flex flex-wrap gap-4 items-center text-gray-400 text-lg uppercase tracking-widest">
+                <span>Especialista Logístico</span>
+                <span class="text-blue-500">|</span>
+                <span>Full-Stack Software Engineer</span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="glass p-10 rounded-3xl transition-all duration-500 group">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-3xl font-bold">OPERADOR <br><span class="text-blue-500">ESPECIALISTA</span></h2>
+                    <span class="text-xs border border-blue-500 text-blue-500 px-3 py-1 rounded-full">AGRO & SOLAR</span>
+                </div>
+                <p class="text-gray-400 mb-6 leading-relaxed">
+                    Expertise em operações críticas: Torres de produção, Câmaras frias e Canteiros de Energia Solar (M.S. Chavez). 
+                    Domínio total de movimentação de PA (Produto Acabado) e containers.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 text-sm text-gray-300">
+                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div> NR-10, 11, 12, 18 (Sênior)
+                    </div>
+                    <div class="flex items-center gap-3 text-sm text-gray-300">
+                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div> Disponibilidade para Alojamento
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-10 rounded-3xl transition-all duration-500 group">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-3xl font-bold text-white">SOFTWARE <br><span class="text-purple-500">ARCHITECT</span></h2>
+                    <span class="text-xs border border-purple-500 text-purple-500 px-3 py-1 rounded-full">17 ANOS EXP</span>
+                </div>
+                <p class="text-gray-400 mb-6 leading-relaxed">
+                    Desenvolvimento de ecossistemas escaláveis em PHP 8 e MySQL. Automação de fluxos logísticos 
+                    e arquitetura de APIs de alta performance.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-purple-900/30 text-purple-400 px-3 py-1 rounded-md text-xs">PHP 8</span>
+                    <span class="bg-purple-900/30 text-purple-400 px-3 py-1 rounded-md text-xs">API REST</span>
+                    <span class="bg-purple-900/30 text-purple-400 px-3 py-1 rounded-md text-xs">SQL SERVER</span>
+                    <span class="bg-purple-900/30 text-purple-400 px-3 py-1 rounded-md text-xs">SEO</span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-20 flex flex-col md:flex-row justify-between items-center gap-8 glass p-8 rounded-2xl">
+            <div>
+                <p class="text-gray-500 text-sm uppercase tracking-widest">Contato Direto</p>
+                <p class="text-2xl font-bold">(38) 9 9975-2535</p>
+            </div>
+            <a href="https://wa.me/5538999752535" class="bg-white text-black font-bold px-10 py-4 rounded-full hover:bg-blue-500 hover:text-white transition-all transform hover:scale-110">
+                INICIAR OPERAÇÃO
+            </a>
+        </footer>
+    </div>
+
+    <script>
+        // Matrix Background Logic
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = "010101PEDROHENRIQUEPHP8LOGISTICASYSTEMS";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#3b82f6';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 33);
+    </script>
+</body>
+</html>
